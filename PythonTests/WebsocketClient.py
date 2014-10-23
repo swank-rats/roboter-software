@@ -22,9 +22,10 @@ class DummyClient(WebSocketClient):
             self.close(reason='Bye bye')
 
         if len(m) == 100:
-            GPIO.setup("P8_10", GPIO.OUT)
-            GPIO.output("P8_10", GPIO.HIGH)
+            GPIO.setup("USR3", GPIO.OUT)
+            GPIO.output("USR3", GPIO.HIGH)
             GPIO.cleanup()
+            print "should be HIGH"
 
 
 if __name__ == '__main__':
