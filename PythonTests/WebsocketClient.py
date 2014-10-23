@@ -1,7 +1,13 @@
 from ws4py.client.threadedclient import WebSocketClient
+import Adafruit_BBIO.GPIO as GPIO
+
+
 
 class DummyClient(WebSocketClient):
     def opened(self):
+        GPIO.setup("USR3", GPIO.OUT)
+
+
         for i in range(0, 200, 25):
             self.send("#" * i)
 
@@ -12,6 +18,10 @@ class DummyClient(WebSocketClient):
         print m
         if len(m) == 175:
             self.close(reason='Bye bye')
+
+        if len(m) == 100:
+             GPIO.output("USR3", GPIO.HIGH)
+
 
 if __name__ == '__main__':
     try:
