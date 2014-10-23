@@ -12,6 +12,7 @@ class DummyClient(WebSocketClient):
             self.send("#" * i)
 
     def closed(self, code, reason=None):
+        GPIO.cleanup()
         print "Closed down", code, reason
 
     def received_message(self, m):
