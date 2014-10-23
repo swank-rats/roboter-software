@@ -5,27 +5,26 @@ import Adafruit_BBIO.GPIO as GPIO
 
 class DummyClient(WebSocketClient):
     def opened(self):
-        GPIO.setup("USR3", GPIO.OUT)
-        GPIO.setup("USR2", GPIO.IN)
+        #GPIO.setup("USR3", GPIO.OUT)
+        #GPIO.setup("USR2", GPIO.IN)
 
         for i in range(0, 200, 25):
             self.send("#" * i)
 
     def closed(self, code, reason=None):
-        GPIO.cleanup()
+       # GPIO.cleanup()
         print "Closed down", code, reason
 
     def received_message(self, m):
         print m
-        if GPIO.input("USR2"):
-            print("HIGH")
-        else:
-            print("LOW")
+
         if len(m) == 175:
             self.close(reason='Bye bye')
 
         if len(m) == 100:
-             GPIO.output("USR3", GPIO.HIGH)
+            GPIO.setup("P8_10", GPIO.OUT)
+            GPIO.output("P8_10", GPIO.HIGH)
+            GPIO.cleanup()
 
 
 if __name__ == '__main__':
