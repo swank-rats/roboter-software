@@ -16,25 +16,25 @@ import time
 
 #Define commands to be executed later on based on logic
 #Command for turning led0 "On"
-led0_on = 'echo 1 > /sys/class/leds/beaglebone::usr0/brightness'
+led0_on = 'echo 1 > /sys/class/leds/beaglebone\:green\:usr0/brightness'
 #Command for turning led0 "Off"
-led0_off = 'echo 0 > /sys/class/leds/beaglebone::usr0/brightness'
+led0_off = 'echo 0 > /sys/class/leds/beaglebone\:green\:usr0/brightness'
 
 
 #Command for turning led1 "On"
-led1_on = 'echo 1 > /sys/class/leds/beaglebone::usr1/brightness'
+led1_on = 'echo 1 > /sys/class/leds/beaglebone\:green\:usr1/brightness'
 #Command for turning led1 "Off"
-led1_off = 'echo 0 > /sys/class/leds/beaglebone::usr1/brightness'
+led1_off = 'echo 0 > /sys/class/leds/beaglebone\:green\:usr1/brightness'
 
 #Command for turning led2 "On"
-led2_on = 'echo 1 > /sys/class/leds/beaglebone::usr2/brightness'
+led2_on = 'echo 1 > /sys/class/leds/beaglebone\:green\:usr2/brightness'
 #Command for turning led2 "Off"
-led2_off = 'echo 0 > /sys/class/leds/beaglebone::usr2/brightness'
+led2_off = 'echo 0 > /sys/class/leds/beaglebone\:green\:usr2/brightness'
 
 #Command for turning led3 "On"
-led3_on = 'echo 1 > /sys/class/leds/beaglebone::usr3/brightness'
+led3_on = 'echo 1 > /sys/class/leds/beaglebone\:green\:usr3/brightness'
 #Command for turning led3 "Off"
-led3_off = 'echo 0 > /sys/class/leds/beaglebone::usr3/brightness'
+led3_off = 'echo 0 > /sys/class/leds/beaglebone\:green\:usr3/brightness'
 ##################
 
 
