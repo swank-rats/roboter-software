@@ -2,7 +2,7 @@ __author__ = 'Johannes'
 import Adafruit_BBIO.GPIO as GPIO
 import time
 
-P = "P8_3"
+P = "P8_10"
 
 GPIO.setup(P, GPIO.OUT)
 for i in xrange(100):

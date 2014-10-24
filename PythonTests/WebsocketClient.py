@@ -7,7 +7,7 @@ class DummyClient(WebSocketClient):
     P = "GPIO8_10"
     def opened(self):
         GPIO.setup(self.P, GPIO.OUT)
-        PIO.output(self.P, GPIO.LOW)
+        GPIO.output(self.P, GPIO.LOW)
 
         for i in range(0, 200, 25):
             self.send("#" * i)
