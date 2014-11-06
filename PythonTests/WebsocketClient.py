@@ -4,8 +4,10 @@ import Adafruit_BBIO.GPIO as GPIO
 
 
 class DummyClient(WebSocketClient):
+    P = "GPIO8_10"
     def opened(self):
-        GPIO.setup("USR3", GPIO.OUT)
+        GPIO.setup(self.P, GPIO.OUT)
+        GPIO.output(self.P, GPIO.LOW)
 
         for i in range(0, 200, 25):
             self.send("#" * i)
@@ -16,11 +18,13 @@ class DummyClient(WebSocketClient):
 
     def received_message(self, m):
         print m
+
         if len(m) == 175:
             self.close(reason='Bye bye')
 
         if len(m) == 100:
-             GPIO.output("USR3", GPIO.HIGH)
+            GPIO.output(self.P, GPIO.HIGH)
+            print "should be HIGH"
 
 
 if __name__ == '__main__':
