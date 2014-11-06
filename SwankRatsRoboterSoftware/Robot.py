@@ -5,10 +5,10 @@ class Robot:
 
 
     def setLeftMotor(self, percent):
-        print('leftMotor ' + percent)
+        print('leftMotor ' + str(percent))
 
     def setRightMotor(self, percent):
-        print('rightMotor ' + percent)
+        print('rightMotor ' + str(percent))
 
     def driveStraight(self):
         self.setLeftMotor(80)

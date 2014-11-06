@@ -1,7 +1,6 @@
 __author__ = 'Johannes'
 import json
 from Robot import  Robot
-from pprint import pprint
 
 class MessageParser:
 
@@ -12,13 +11,17 @@ class MessageParser:
         self.robot = Robot()
 
     def parse(self, jsonString):
-        data = json.load(jsonString)
-        if( data["to"] == "robot"):
-            if(data["cmd"].lower() == "left"):
-                self.robot.driveLeft()
-            if(data["cmd"].lower() == "right"):
-                self.robot.driveStraight()
-            if(data["cmd"].lower() == "straight"):
-                self.robot.driveStraight()
-        if(data["to"] == "print"):
-            pprint(data)
+        try:
+            data = json.loads(jsonString)
+            if( data["to"] == "robot"):
+                if(data["cmd"].lower() == "left"):
+                    self.robot.driveLeft()
+                if(data["cmd"].lower() == "right"):
+                    self.robot.driveStraight()
+                if(data["cmd"].lower() == "straight"):
+                    self.robot.driveStraight()
+            if(data["to"] == "print"):
+                 json.dumps(data)
+            json.dumps(data)
+        except:
+            print "Oops!  That was no valid json.  Try again..."
