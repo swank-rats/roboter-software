@@ -1,7 +1,7 @@
 __author__ = 'Johannes'
 #import Adafruit_BBIO.GPIO as GPIO
 import DMCC
-
+import time
 
 class Robot:
 
@@ -16,11 +16,13 @@ class Robot:
                 print('leftMotor ' + str(actuel))
                 DMCC.setMotor(0, 1, actuel * 100/2)
                 actuel += 1
+                time.sleep(0.010)
         if percent < 0:
             while actuel >= percent:
                 print('leftMotor ' + str(actuel))
                 DMCC.setMotor(0, 1, actuel * 100/2)
                 actuel -= 1
+                time.sleep(0.010)
 
     def setRightMotor(self, percent):
         actuel = 0
@@ -32,11 +34,13 @@ class Robot:
                 print('rightMotor ' + str(actuel))
                 DMCC.setMotor(0, 2, actuel * 100/2)
                 actuel += 1
+                time.sleep(0.010)
         if percent < 0:
             while actuel >= percent:
                 print('rightMotor ' + str(actuel))
                 DMCC.setMotor(0, 2, actuel * 100/2)
                 actuel -= 1
+                time.sleep(0.010)
 
     def driveStraight(self):
         self.setLeftMotor(80)
