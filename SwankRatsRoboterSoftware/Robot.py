@@ -1,14 +1,18 @@
 __author__ = 'Johannes'
 #import Adafruit_BBIO.GPIO as GPIO
+import DMCC
+
 
 class Robot:
 
 
     def setLeftMotor(self, percent):
         print('leftMotor ' + str(percent))
+        DMCC.setMotor(0, 1, percent * 100/2)
 
     def setRightMotor(self, percent):
         print('rightMotor ' + str(percent))
+        DMCC.setMotor(0, 2, percent * 100/2)
 
     def driveStraight(self):
         self.setLeftMotor(80)
