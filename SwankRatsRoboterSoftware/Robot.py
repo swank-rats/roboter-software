@@ -9,8 +9,8 @@ class Robot:
     def setLeftMotor(self, percent):
         actuel = 0
         if percent == 0:
-            print('leftMotor ' + str(actuel))
-            DMCC.setMotor(0, 1, actuel * 100/2)
+            print('leftMotor ' + str(percent))
+            DMCC.setMotor(0, 1, percent * 100/2)
         if percent > 0:
             while actuel <= percent:
                 print('leftMotor ' + str(actuel))
@@ -29,13 +29,13 @@ class Robot:
             DMCC.setMotor(0, 2, percent * 100/2)
         if percent > 0:
             while actuel <= percent:
-                print('rightMotor ' + str(percent))
-                DMCC.setMotor(0, 2, percent * 100/2)
+                print('rightMotor ' + str(actuel))
+                DMCC.setMotor(0, 2, actuel * 100/2)
                 actuel += 1
         if percent < 0:
             while actuel >= percent:
-                print('rightMotor ' + str(percent))
-                DMCC.setMotor(0, 2, percent * 100/2)
+                print('rightMotor ' + str(actuel))
+                DMCC.setMotor(0, 2, actuel * 100/2)
                 actuel -= 1
 
     def driveStraight(self):
