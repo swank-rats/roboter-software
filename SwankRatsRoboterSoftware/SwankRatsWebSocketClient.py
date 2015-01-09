@@ -9,7 +9,7 @@ class SwankRatsWebSocketClient(WebSocketClient):
     def opened(self):
         print("opened")
         self.parser = MessageParser()
-        data = '{"to":"test", "cmd":"echo", "params":{"toUpper":true}, "data":"testdata"}'
+        data = '{"to":"robot", "cmd":"init", "params":{"form":"pentagon"} }'
         self.send(data)
 
     def closed(self, code, reason=None):
@@ -18,11 +18,11 @@ class SwankRatsWebSocketClient(WebSocketClient):
     def received_message(self, m):
         print m
         data = '{"to":"robot", "cmd":"left"}'
-        self.parser.parse(data)
+        self.parser.parse(m)
 
 if __name__ == '__main__':
     try:
-        ws = SwankRatsWebSocketClient('ws://echo.websocket.org', protocols=['http-only', 'chat'])
+        ws = SwankRatsWebSocketClient('ws://192.168.43.177:2000')
         ws.connect()
         ws.run_forever()
     except KeyboardInterrupt:
