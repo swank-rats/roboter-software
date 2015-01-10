@@ -23,6 +23,8 @@ class Stop(State):
             return R()
         if key == "straight":
             return F()
+        if key == "backwards":
+            return B()
         return Stop()
 
     def release(self, key):
@@ -113,3 +115,54 @@ class L(State):
 
     def getRight(self):
         return 30
+
+class B(State):
+    def press(self, key):
+        if key == "left":
+            return BL()
+        if key == "right":
+            return BR()
+        return Stop()
+
+    def release(self, key):
+        if key == "left":
+            return B()
+        if key == "right":
+            return B()
+        return Stop()
+
+    def getLeft(self):
+        return -60
+
+    def getRight(self):
+        return -60
+
+class BL(State):
+    def press(self, key):
+        return Stop()
+
+    def release(self, key):
+        if key == "left":
+            return B()
+        return Stop()
+
+    def getLeft(self):
+        return -30
+
+    def getRight(self):
+        return -60
+
+class BR(State):
+    def press(self, key):
+        return Stop()
+
+    def release(self, key):
+        if key == "right":
+            return B()
+        return Stop()
+
+    def getLeft(self):
+        return -60
+
+    def getRight(self):
+        return -30
