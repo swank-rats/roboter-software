@@ -7,4 +7,4 @@ if __name__ == '__main__':
         ws.connect()
         ws.run_forever()
     except KeyboardInterrupt:
-        ws.close()  
+        ws.close()

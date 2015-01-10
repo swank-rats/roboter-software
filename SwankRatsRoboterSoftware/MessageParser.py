@@ -2,6 +2,7 @@ __author__ = 'Johannes'
 import json
 from Robot import  Robot
 import StateClasses
+import sys
 
 class MessageParser:
 
@@ -28,5 +29,6 @@ class MessageParser:
                  json.dumps(data)
 
             json.dumps(data)
-        except:
-            print "Oops!  That was no valid json.  Try again..."
+        except :
+            e = sys.exc_info()[0]
+            print e
