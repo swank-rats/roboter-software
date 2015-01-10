@@ -1,13 +1,15 @@
 __author__ = 'Johannes'
 # import Adafruit_BBIO.GPIO as GPIO
+
 import DMCC
 import time
 import Main
+import RobotConfig
 
 class Robot:
 
     def __init__(self):
-        self.max = Main.Config.get('robot', 'max')
+        self.max = RobotConfig.Config.get('robot', 'max')
         self.max = self.max / 100.0
         print(self.max)
 
