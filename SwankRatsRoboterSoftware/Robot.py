@@ -3,8 +3,11 @@ __author__ = 'Johannes'
 import DMCC
 import time
 
-
 class Robot:
+
+    def __init__(self):
+        global Config
+        print(Config.get('robot', 'max'))
 
     def setLeftMotor(self, percent):
         print('leftMotor ' + str(percent))
@@ -19,7 +22,7 @@ class Robot:
         actuel = 0
         if percent == 0:
             print('leftMotor ' + str(percent))
-            DMCC.setMotor(0, 1, int(percent * 100 ))
+            DMCC.setMotor(0, 1, int(percent * 100))
         if percent > 0:
             actuel = 10
             while actuel <= percent:

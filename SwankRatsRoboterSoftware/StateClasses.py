@@ -43,10 +43,10 @@ class F(State):
         return Stop()
 
     def getLeft(self):
-        return 60
+        return 100
 
     def getRight(self):
-        return 60
+        return 100
 
 
 class FL(State):
@@ -61,10 +61,10 @@ class FL(State):
         return Stop()
 
     def getLeft(self):
-        return 30
+        return 50
 
     def getRight(self):
-        return 60
+        return 100
 
 
 class FR(State):
@@ -79,10 +79,10 @@ class FR(State):
         return Stop()
 
     def getLeft(self):
-        return 60
+        return 100
 
     def getRight(self):
-        return 30
+        return 50
 
 
 class R(State):
@@ -95,7 +95,7 @@ class R(State):
         return Stop()
 
     def getLeft(self):
-        return 30
+        return 50
 
     def getRight(self):
         return 0
@@ -114,7 +114,7 @@ class L(State):
         return 0
 
     def getRight(self):
-        return 30
+        return 50
 
 class B(State):
     def press(self, key):
@@ -132,10 +132,10 @@ class B(State):
         return Stop()
 
     def getLeft(self):
-        return -60
+        return -100
 
     def getRight(self):
-        return -60
+        return -100
 
 class BL(State):
     def press(self, key):
@@ -147,10 +147,10 @@ class BL(State):
         return Stop()
 
     def getLeft(self):
-        return -30
+        return -50
 
     def getRight(self):
-        return -60
+        return -100
 
 class BR(State):
     def press(self, key):
@@ -162,7 +162,7 @@ class BR(State):
         return Stop()
 
     def getLeft(self):
-        return -60
+        return -100
 
     def getRight(self):
-        return -30
+        return -50
