@@ -13,9 +13,9 @@ class MessageParser:
         self.robot = Robot()
         self.currentState = StateClasses.Stop()
 
-    def parse(self, jsonString):
+    def parse(self, data):
         #try:
-        data = json.loads(jsonString)
+        #data = json.loads(jsonString)
         if( data["to"] == "robot"):
             if(data["params"]["started"] == True):
                 self.currentState = self.currentState.press(data["cmd"])

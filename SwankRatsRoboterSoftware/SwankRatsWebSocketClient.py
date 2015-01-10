@@ -17,7 +17,7 @@ class SwankRatsWebSocketClient(WebSocketClient):
 
     def received_message(self, m):
         print m
-        data = '{"to":"robot", "cmd":"left"}'
+        #data = '{"to":"robot", "cmd":"left"}'
         self.parser.parse(m)
 
 if __name__ == '__main__':
