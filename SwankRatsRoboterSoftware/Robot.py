@@ -8,7 +8,7 @@ import RobotConfig
 class Robot:
 
     def __init__(self):
-        self.max = RobotConfig.Config.get('robot', 'max')
+        self.max = RobotConfig.Config.getfloat('robot', 'max')
         self.max = self.max / 100.0
         print(self.max)
 
