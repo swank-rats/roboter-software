@@ -8,7 +8,9 @@ if __name__ == '__main__':
         Config = ConfigParser.ConfigParser()
         Config.read("./config.ini")
 
-        ws = SwankRatsWebSocketClient(Config.get("server", "address"))
+        address = Config.get("server", "address")
+        print address
+        ws = SwankRatsWebSocketClient(address)
         ws.connect()
         ws.run_forever()
     except KeyboardInterrupt:
