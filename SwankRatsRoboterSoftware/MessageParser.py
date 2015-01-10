@@ -13,19 +13,19 @@ class MessageParser:
         self.robot = Robot()
         self.currentState = StateClasses.Stop()
 
-    def parse(self, data):
+    def parse(self, jsonString):
         #try:
-        #data = json.loads(jsonString)
-        if( data.to() == "robot"):
-            if(data.params().started() == True):
+        data = json.loads(jsonString)
+        if( data["to"] == "robot"):
+            if(data["params"]["started"] == True):
                 self.currentState = self.currentState.press(data["cmd"])
-            if(data.params().started() == False):
+            if(data["params"]["started"] == False):
                 self.currentState = self.currentState.release(data["cmd"])
 
             self.robot.setLeftMotor(self.currentState.getLeft())
             self.robot.setRightMotor(self.currentState.getRight())
 
-        if(data.to() == "print"):
+        if(data["to"] == "print"):
              json.dumps(data)
 
         json.dumps(data)
