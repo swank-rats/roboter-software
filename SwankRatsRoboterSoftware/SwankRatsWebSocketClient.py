@@ -4,8 +4,6 @@ from MessageParser import MessageParser
 
 
 class SwankRatsWebSocketClient(WebSocketClient):
-
-
     def opened(self):
         print("opened")
         self.parser = MessageParser()
@@ -17,8 +15,9 @@ class SwankRatsWebSocketClient(WebSocketClient):
 
     def received_message(self, m):
         print m
-        #data = '{"to":"robot", "cmd":"left"}'
+        # data = '{"to":"robot", "cmd":"left"}'
         self.parser.parse(m.data)
+
 
 if __name__ == '__main__':
     try:
