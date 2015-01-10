@@ -89,6 +89,8 @@ class R(State):
     def press(self, key):
         if key == "straight":
             return FR()
+        if key == "backwards":
+            return BR()
         return Stop()
 
     def release(self, key):
@@ -105,6 +107,8 @@ class L(State):
     def press(self, key):
         if key == "straight":
             return FL()
+        if key == "backwards":
+            return BL()
         return Stop()
 
     def release(self, key):
