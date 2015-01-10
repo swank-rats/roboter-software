@@ -3,7 +3,6 @@ __author__ = 'Johannes'
 
 import DMCC
 import time
-import Main
 import RobotConfig
 
 class Robot:
