@@ -14,11 +14,20 @@ class Robot:
         self.leftMax = self.leftMax / 100.0
 
     def setLeftMotor(self, percent):
-        print('leftMotor ' + str(percent))
-        DMCC.setMotor(0, 1, int(percent * 100 * self.leftMax))
+        try:
+            print('leftMotor ' + str(percent))
+            DMCC.setMotor(0, 1, int(percent * 100 * self.leftMax))
+        except:
+            print "Error setting left motor, trying again"
+            self.setLeftMotor(percent)
 
     def setRightMotor(self, percent):
-        print('rightMotor ' + str(percent))
-        DMCC.setMotor(0, 2, int(-percent * 100 * self.rightMax))
+        try:
+            print('rightMotor ' + str(percent))
+            DMCC.setMotor(0, 2, int(-percent * 100 * self.rightMax))
+        except:
+            print "Error setting right motor, trying again"
+            #time.sleep(0.01)
+            self.setRightMotor(percent)
 
 
