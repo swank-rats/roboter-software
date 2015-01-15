@@ -28,6 +28,7 @@ def setMotor(start, stop, step, motor, max, pause):
         up(start, stop, step, motor, max, pause)
 
 def up(start, stop, step, motor, max, pause):
+    print
     while start <= stop:
         start += step
         time.sleep(pause)
