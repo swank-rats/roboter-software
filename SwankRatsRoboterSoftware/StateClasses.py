@@ -100,7 +100,7 @@ class R(State):
         return 50
 
     def getRight(self):
-        return 0
+        return -50
 
 
 class L(State):
@@ -115,7 +115,7 @@ class L(State):
         return Stop()
 
     def getLeft(self):
-        return 0
+        return -50
 
     def getRight(self):
         return 50
