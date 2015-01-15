@@ -24,7 +24,7 @@ class Robot:
     def setRightMotor(self, percent):
         try:
             print('rightMotor ' + str(percent))
-            DMCC.setMotor(0, 2, int(-percent * 100 * self.rightMax))
+            DMCC.setMotor(0, 2, int(percent * 100 * self.rightMax))
         except:
             print "Error setting right motor, trying again"
             #time.sleep(0.01)
