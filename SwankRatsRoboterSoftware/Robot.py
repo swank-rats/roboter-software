@@ -71,7 +71,7 @@ def set(motor, value, max):
         value = int(value * 100 * max)
         if motor == "left":
             DMCC.setMotor(0, 1, value)
-        if motor == "right":
+        elif motor == "right":
             DMCC.setMotor(0, 2, value)
     except:
         print "Error setting " + motor + " motor, trying again"
