@@ -30,6 +30,7 @@ def setMotor(start, stop, step, motor, max, pause):
     while start <= stop:
         start += step
         time.sleep(pause)
+        print(start)
         try:
             if motor == "left":
                 DMCC.setMotor(0, 1, int(start * 100 * max))
