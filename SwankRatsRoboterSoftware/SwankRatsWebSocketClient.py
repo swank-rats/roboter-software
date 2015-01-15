@@ -3,6 +3,7 @@ from ws4py.client.threadedclient import WebSocketClient
 from MessageParser import MessageParser
 import RobotConfig
 
+
 class SwankRatsWebSocketClient(WebSocketClient):
     def opened(self):
         self.form = RobotConfig.Config.get("robot", "form")

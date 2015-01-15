@@ -1,8 +1,8 @@
 __author__ = 'Johannes'
 import json
+
 from Robot import Robot
 import StateClasses
-import sys
 
 
 class MessageParser:
@@ -14,9 +14,8 @@ class MessageParser:
         self.currentState = StateClasses.Stop()
 
     def parse(self, jsonString):
-        # try:
         data = json.loads(jsonString)
-        if ( data["to"] == "robot"):
+        if (data["to"] == "robot"):
             if (data["params"]["started"] == True):
                 self.currentState = self.currentState.press(data["cmd"])
             if (data["params"]["started"] == False):
@@ -29,6 +28,3 @@ class MessageParser:
             json.dumps(data)
 
         json.dumps(data)
-        #except :
-        #   e = sys.exc_info()[0]
-        #  print e

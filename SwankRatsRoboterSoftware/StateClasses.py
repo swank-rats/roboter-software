@@ -120,6 +120,7 @@ class L(State):
     def getRight(self):
         return 50
 
+
 class B(State):
     def press(self, key):
         if key == "left":
@@ -141,6 +142,7 @@ class B(State):
     def getRight(self):
         return -100
 
+
 class BL(State):
     def press(self, key):
         return Stop()
@@ -155,6 +157,7 @@ class BL(State):
 
     def getRight(self):
         return -100
+
 
 class BR(State):
     def press(self, key):
