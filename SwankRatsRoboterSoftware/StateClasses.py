@@ -2,6 +2,9 @@ __author__ = 'Johannes'
 
 
 class State:
+    def __init__(self):
+        pass
+
     def press(self, key):
         return Stop()
 

@@ -16,7 +16,15 @@ class Robot:
         self.leftMax = lm / 100.0
         self.right = 0
         self.left = 0
-        
+
+
+    def set(self, left, right):
+        threadLeft = self.setLeftMotor(left)
+        threadRight = self.setRightMotor(right)
+
+        threadLeft.join()
+        threadRight.join()
+
 
     def setLeftMotor(self, percent):
         t = threading.Thread(target=setMotor, args=(self.right, percent, 5, "left", self.rightMax, 0.02))
