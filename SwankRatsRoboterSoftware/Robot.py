@@ -4,6 +4,7 @@ __author__ = 'Johannes'
 import DMCC
 import time
 import RobotConfig
+from thread import start_new_thread
 
 class Robot:
 
@@ -14,20 +15,20 @@ class Robot:
         self.leftMax = self.leftMax / 100.0
 
     def setLeftMotor(self, percent):
-        try:
-            print('leftMotor ' + str(percent))
-            DMCC.setMotor(0, 1, int(percent * 100 * self.leftMax))
-        except:
-            print "Error setting left motor, trying again"
-            self.setLeftMotor(percent)
+        start_new_thread(setMotor, (10,percent,5,"left",self.leftMax,0.01))
 
     def setRightMotor(self, percent):
-        try:
-            print('rightMotor ' + str(percent))
-            DMCC.setMotor(0, 2, int(percent * 100 * self.rightMax))
-        except:
-            print "Error setting right motor, trying again"
-            #time.sleep(0.01)
-            self.setRightMotor(percent)
+        start_new_thread(setMotor, (10,percent,5,"right",self.rightMax,0.01))
 
+def setMotor(start, stop, step, motor, max, pause):
+    while start <= stop:
+        start += step
+        time.sleep(pause)
+        try:
+            if motor == "left":
+                DMCC.setMotor(0, 1, int(start * 100 * max))
+            if motor == "right":
+                DMCC.setMotor(0, 2, int(start * 100 * max))
+        except:
+            print "Error setting " + motor + " motor, trying again"
 
