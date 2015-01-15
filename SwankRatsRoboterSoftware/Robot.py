@@ -51,7 +51,7 @@ def setMotor(start, stop, step, motor, max, pause):
 def up(start, stop, step, motor, max, pause):
     print "up " + motor + " " + str(start) + " " + str(stop)
     while start <= stop:
-        print(start)
+        print "up " + motor + " " + str(start) + " " + str(stop)
         set(motor, start, max)
         start += step
         time.sleep(pause)
@@ -60,6 +60,7 @@ def up(start, stop, step, motor, max, pause):
 def down(start, stop, step, motor, max, pause):
     print "down " + motor + " " + str(start) + " " + str(stop)
     while start >= stop:
+        print "down " + motor + " " + str(start) + " " + str(stop)
         set(motor, start, max)
         start -= step
         time.sleep(pause)
