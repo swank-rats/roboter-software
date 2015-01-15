@@ -15,10 +15,16 @@ class Robot:
         self.leftMax = self.leftMax / 100.0
 
     def setLeftMotor(self, percent):
-        start_new_thread(setMotor, (10,percent,5,"left",self.leftMax,0.01))
+        if(percent == 0):
+            DMCC.setMotor(0, 1, 0)
+        else:
+            start_new_thread(setMotor, (10,percent,5,"left",self.leftMax,0.01))
 
     def setRightMotor(self, percent):
-        start_new_thread(setMotor, (10,percent,5,"right",self.rightMax,0.01))
+        if(percent == 0):
+            DMCC.setMotor(0, 2, 0)
+        else:
+            start_new_thread(setMotor, (10,percent,5,"right",self.rightMax,0.01))
 
 def setMotor(start, stop, step, motor, max, pause):
     while start <= stop:
