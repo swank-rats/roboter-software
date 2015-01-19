@@ -15,13 +15,17 @@ class MessageParser:
 
     def parse(self, jsonString):
         data = json.loads(jsonString)
-        if data["to"] == "robot":
-            if data["params"]["started"]:
-                self.currentState = self.currentState.press(data["cmd"])
-            if not data["params"]["started"]:
-                self.currentState = self.currentState.release(data["cmd"])
 
-            print self.currentState.__class__.__name__
-            self.robot.set(self.currentState.getLeft(), self.currentState.getRight())
+        if data["to"] == "robot":
+            self.execute(data["cmd"], data["params"]["started"])
 
         json.dumps(data)
+
+    def execute(self, key, pressed):
+        if pressed:
+            self.currentState = self.currentState.press(key)
+        else:
+            self.currentState = self.currentState.release(key)
+
+        print self.currentState.__class__.__name__
+        self.robot.set(self.currentState.getLeft(), self.currentState.getRight())

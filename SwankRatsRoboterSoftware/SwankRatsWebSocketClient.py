@@ -17,14 +17,4 @@ class SwankRatsWebSocketClient(WebSocketClient):
 
     def received_message(self, m):
         print m
-        # data = '{"to":"robot", "cmd":"left"}'
         self.parser.parse(m.data)
-
-
-if __name__ == '__main__':
-    try:
-        ws = SwankRatsWebSocketClient('ws://192.168.43.177:2000')
-        ws.connect()
-        ws.run_forever()
-    except KeyboardInterrupt:
-        ws.close()
