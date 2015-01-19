@@ -21,6 +21,7 @@ class MessageParser:
             if not data["params"]["started"]:
                 self.currentState = self.currentState.release(data["cmd"])
 
+            print self.currentState.__class__.__name__
             self.robot.set(self.currentState.getLeft(), self.currentState.getRight())
 
         json.dumps(data)

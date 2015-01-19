@@ -27,16 +27,22 @@ class Robot:
 
 
     def setLeftMotor(self, percent):
-        t = threading.Thread(target=setMotor, args=(self.right, percent, 5, "left", self.rightMax, 0.02))
-        t.start()
-        self.left = percent
+        try:
+            t = threading.Thread(target=setMotor, args=(self.left, percent, 20, "left", self.rightMax, 0.01))
+            t.start()
+            self.left = percent
+        except:
+            print "error set left"
 
         return t
 
     def setRightMotor(self, percent):
-        t = threading.Thread(target=setMotor, args=(self.right, percent, 5, "right", self.rightMax, 0.02))
-        t.start()
-        self.right = percent
+        try:
+            t = threading.Thread(target=setMotor, args=(self.right, percent, 20, "right", self.rightMax, 0.01))
+            t.start()
+            self.right = percent
+        except:
+            print "error set right"
 
         return t
 
@@ -52,7 +58,7 @@ def up(start, stop, step, motor, max, pause):
     print "up " + motor + " " + str(start) + " " + str(stop)
     while start <= stop:
         print "up " + motor + " " + str(start) + " " + str(stop)
-        set(motor, start, max)
+        doSetMotor(motor, start, max)
         start += step
         time.sleep(pause)
 
@@ -61,12 +67,12 @@ def down(start, stop, step, motor, max, pause):
     print "down " + motor + " " + str(start) + " " + str(stop)
     while start >= stop:
         print "down " + motor + " " + str(start) + " " + str(stop)
-        set(motor, start, max)
+        doSetMotor(motor, start, max)
         start -= step
         time.sleep(pause)
 
 
-def set(motor, value, max):
+def doSetMotor(motor, value, max):
     try:
         value = int(value * 100 * max)
         if motor == "left":
