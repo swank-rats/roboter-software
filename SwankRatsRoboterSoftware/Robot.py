@@ -28,7 +28,7 @@ class Robot:
 
     def setLeftMotor(self, percent):
         try:
-            t = threading.Thread(target=setMotor, args=(self.left, percent, 20, "left", self.rightMax, 0.01))
+            t = threading.Thread(target=setMotor, args=(self.left, percent, 20, "left", self.leftMax, 0.01))
             t.start()
             self.left = percent
         except:
@@ -55,18 +55,18 @@ def setMotor(start, stop, step, motor, max, pause):
 
 
 def up(start, stop, step, motor, max, pause):
-    print "up " + motor + " " + str(start) + " " + str(stop)
+    #print "up " + motor + " " + str(start) + " " + str(stop)
     while start <= stop:
-        print "up " + motor + " " + str(start) + " " + str(stop)
+        #print "up " + motor + " " + str(start) + " " + str(stop)
         doSetMotor(motor, start, max)
         start += step
         time.sleep(pause)
 
 
 def down(start, stop, step, motor, max, pause):
-    print "down " + motor + " " + str(start) + " " + str(stop)
+    #print "down " + motor + " " + str(start) + " " + str(stop)
     while start >= stop:
-        print "down " + motor + " " + str(start) + " " + str(stop)
+        #print "down " + motor + " " + str(start) + " " + str(stop)
         doSetMotor(motor, start, max)
         start -= step
         time.sleep(pause)
