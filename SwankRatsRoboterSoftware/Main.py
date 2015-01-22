@@ -11,7 +11,7 @@ def getAddress():
 
     schema = "ws"
     if ssl:
-        schema = "wss://"
+        schema = "wss"
 
     if RobotConfig.Config.getboolean("authentication", "enabled"):
         username = RobotConfig.Config.get("authentication", "username")
