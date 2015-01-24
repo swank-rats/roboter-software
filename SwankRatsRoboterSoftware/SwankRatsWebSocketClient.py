@@ -1,8 +1,11 @@
 __author__ = 'Johannes'
+import os
+
 from ws4py.client.threadedclient import WebSocketClient
+
 from MessageParser import MessageParser
 import RobotConfig
-import os
+
 
 class SwankRatsWebSocketClient(WebSocketClient):
     def opened(self):
@@ -14,6 +17,7 @@ class SwankRatsWebSocketClient(WebSocketClient):
 
     def closed(self, code, reason=None):
         print "Closed down", code, reason
+        self.parser.robot.set(0, 0)
         os.system("shutdown /r")
 
     def received_message(self, m):
