@@ -26,7 +26,7 @@ if __name__ == '__main__':
     try:
         address = getAddress()
         print address
-        ws = SwankRatsWebSocketClient(address)
+        ws = SwankRatsWebSocketClient(address, None, None, 10)
         ws.connect()
         ws.run_forever()
     except KeyboardInterrupt:
