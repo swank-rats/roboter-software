@@ -64,7 +64,7 @@ class FL(State):
         return Stop()
 
     def getLeft(self):
-        return 50
+        return 0
 
     def getRight(self):
         return 100
@@ -85,7 +85,7 @@ class FR(State):
         return 100
 
     def getRight(self):
-        return 50
+        return 0
 
 
 class R(State):
@@ -156,7 +156,7 @@ class BL(State):
         return Stop()
 
     def getLeft(self):
-        return -50
+        return 0
 
     def getRight(self):
         return -100
@@ -175,4 +175,4 @@ class BR(State):
         return -100
 
     def getRight(self):
-        return -50
+        return 0
