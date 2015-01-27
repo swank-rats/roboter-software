@@ -18,7 +18,10 @@ class MessageParser:
 
         if data["to"] == "robot":
             self.execute(data["cmd"], data["params"]["started"])
+        elif data["to"] == "server" and data["cmd"] == "stop":
+            self.currentState = StateClasses.Stop()
 
+        self.robot.set(self.currentState.getLeft(), self.currentState.getRight())
         json.dumps(data)
 
     def execute(self, key, pressed):
@@ -26,6 +29,3 @@ class MessageParser:
             self.currentState = self.currentState.press(key)
         else:
             self.currentState = self.currentState.release(key)
-
-        print self.currentState.__class__.__name__
-        self.robot.set(self.currentState.getLeft(), self.currentState.getRight())
